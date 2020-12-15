@@ -1,0 +1,95 @@
+// @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700;800&display=swap');
+@import 'variables';
+@import 'null_style';
+@import 'fonts';
+
+@mixin fontSet ($fsz, $lh, $fw) {
+  font-family: 'Raleway', Arial, Helvetica, sans-serif !important;
+  font-size: $fsz+px !important;
+  line-height: $lh+px !important;
+  font-weight: $fw !important;
+  color: $fc !important;
+}
+
+@mixin navBtn () {
+  width: 65px;
+  height: $controls-h+px;
+  box-shadow: 0px 4px 6px rgba(46, 84, 103, 0.04), 0px 10px 16px rgba(42, 77, 95, 0.05);
+  background-color: #fff;
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 10;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0.8;
+  &:active {
+    top: calc(50% + 3px);
+  }
+  &:hover {
+    .v-icon {
+      color: $yellow1;
+    }
+  }
+}
+
+* {
+  // @include fontSet(16, 18, 400)
+  font-family: 'Raleway', Arial, Helvetica, sans-serif !important;
+}
+
+html, body {
+  background-color: white;
+  font-family: 'Raleway', Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  color: $fc;
+}
+
+.container {
+  max-width: $mw+px;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 !important;
+  @media (max-width: $md1+px) {max-width: 970px;}
+	@media (max-width: $md2+px) {max-width: 750px;}
+	@media (max-width: $md3+px) {max-width: none;padding: 0 10px;}
+}
+
+.content-container {
+  padding: 0 80px;
+}
+
+.btn {
+  @include fontSet(16, 17, 600);
+  border-radius: 12px;
+  width: 200px;
+  height: 45px !important;
+  text-transform: none !important;
+  letter-spacing: 0;
+  background-color: $gray1;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.04), 0px 10px 16px rgba(0, 0, 0, 0.05);
+  &.yellow {
+    background-color: $yellow1 !important;
+  }
+  &:hover {
+    box-shadow: none;
+  }
+}
+
+.yellow {
+  background-color: $yellow1 !important;
+}
+
+.title {
+  & * {
+    @include fontSet(45, 47.25, 800);
+    display: flex;
+    text-align: center;
+  }
+  &.center, &.center * {
+    justify-content: center;
+  }
+}
